@@ -1,0 +1,23 @@
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: golang
+    tag: "1.10.3"
+
+inputs:
+- name: source
+
+outputs:
+- name: executable
+
+
+params:
+  entrypoint:
+  entrypointPath:
+  command:
+  directories:
+
+run:
+  path: go-common-tasks/tasks.sh
