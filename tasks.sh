@@ -44,7 +44,7 @@ test() {
 
 build() {
     dep_insure
-	env GOOS=$TARGET GOARCH=$ARCH go build -ldflags="-s -w" -o bin/"$entrypoint" "$entrypointPath" > $DIR/executable
+	env GOOS=$TARGET GOARCH=$ARCH go build -ldflags="-s -w" -o bin/"$entrypoint" "$entrypointPath" > ${DIR}/executable/main
     print success "create a build"
     # zip bin/"$entrypoint".zip bin/"$entrypoint" > executable
     # print success "zip build executable"
