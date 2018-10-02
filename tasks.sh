@@ -17,9 +17,11 @@ print() {
     esac
 }
 
+t="linux"
+a="amd64"
+TARGET="${TARGET:-$t}"
+ARCH="${ARCH:-$a}"
 
-TARGET ?= linux
-ARCH ?= amd64
 
 
 setup() {
@@ -53,26 +55,26 @@ main() {
         echo "Command is a required parameter and must be set."
         exit 1
     fi
-    if [ -z "$directories" ]; then
-        echo "No directories provided. Please set the parameter."
+    if [ -z "$directory" ]; then
+        echo "No directory provided. Please set the parameter."
         exit 1
     fi
 
     setup
-    for directory in $directories; do
-        if [ ! -d "$DIR/source/$directory" ]; then
-            print failure "Directory not found: $directory"
-            exit 1
-        fi
-        cd $DIR/source/$directory
-        print header "Current directory: $directory"
 
-        case "$command" in
-            'test'        ) test ;;
-            'build'       ) build ;;
-            *             ) echo "Command not supported: $command" && exit 1;;
-        esac
-    done
+    export GOPATH=$PWD
+
+    mkdir -p src/github.com/$organization/
+    cp -R ./source src/github.com/$organization/.
+
+    cd src/github.com/$organization/source/$directory
+    print header "Current directory: $directory"
+
+    case "$command" in
+        'test'        ) test ;;
+        'build'       ) build ;;
+        *             ) echo "Command not supported: $command" && exit 1;;
+    esac
 }
 
 main

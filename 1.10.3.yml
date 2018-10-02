@@ -8,6 +8,7 @@ image_resource:
 
 inputs:
 - name: source
+- name: go-tasks
 
 outputs:
 - name: executable
@@ -17,7 +18,12 @@ params:
   entrypoint:
   entrypointPath:
   command:
-  directories:
+  directory:
 
 run:
-  path: go-common-tasks/tasks.sh
+  path: sh
+  args: 
+  - -exc
+  - |
+    chmod +x go-tasks/tasks.sh
+    ./go-tasks/tasks.sh
