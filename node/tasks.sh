@@ -27,7 +27,7 @@ ARCH="${ARCH:-$a}"
 setup() {
     ls
     export DIR="$PWD"
-    mv cache/node_modules ./source
+    # mv cache/node_modules ./source
 }
 
 install_dependencies() {

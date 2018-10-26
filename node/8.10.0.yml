@@ -24,5 +24,6 @@ run:
   - -exc
   - |
     ls
+    mv cache/node_modules ./source
     chmod +x node-tasks/node/tasks.sh
     ./node-tasks/node/tasks.sh
