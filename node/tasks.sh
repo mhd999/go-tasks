@@ -25,10 +25,7 @@ ARCH="${ARCH:-$a}"
 
 
 setup() {
-    ls
     export DIR="$PWD"
-    echo "PATH"
-    echo $DIR
 }
 
 install_dependencies() {
@@ -51,11 +48,7 @@ test() {
 build() {
     install_dependencies
 	npm run build
-    ls
-    # mkdir -p ${DIR}/executable/
     mv handler.js ${DIR}/executable/
-    echo "Change dir"
-    ls 
     print success "create a build"
 }
 
