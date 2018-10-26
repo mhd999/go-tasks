@@ -49,7 +49,8 @@ test() {
 
 build() {
     install_dependencies
-	npm run build > ${DIR}/executable
+	npm run build > 
+    mv handler.js ${DIR}/executable
     print success "create a build"
 }
 
