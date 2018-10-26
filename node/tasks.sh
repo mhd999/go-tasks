@@ -51,7 +51,6 @@ build() {
     install_dependencies
 	npm run build
     ls
-    cat ${DIR}
     cp handler.js ${DIR}/executable/
     ls ${DIR}/executable/
     print success "create a build"
