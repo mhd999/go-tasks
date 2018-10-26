@@ -55,13 +55,9 @@ build() {
     # mkdir -p ${DIR}/executable/
     mv handler.js ${DIR}/executable/
     echo "Change dir"
-    # cd ${DIR}/executable/
-    # ls 
+    ls 
     print success "create a build"
 }
-
-    cd source/$directory
-    print header "Current directory: $directory"
 
 main() {
     if [ -z "$command" ]; then
@@ -74,6 +70,9 @@ main() {
     fi
 
     setup
+
+    cd source/$directory
+    print header "Current directory: $directory"
 
     case "$command" in
         'lint'        ) lint ;;
