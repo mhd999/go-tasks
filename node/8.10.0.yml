@@ -15,6 +15,7 @@ outputs:
 
 
 params:
+  entrypoint:
   command:
   directory:
 
