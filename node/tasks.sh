@@ -49,7 +49,7 @@ test() {
 
 build() {
     install_dependencies
-	npm run build
+	npm run build > ${DIR}/executable
     print success "create a build"
 }
 
