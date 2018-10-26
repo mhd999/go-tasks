@@ -7,7 +7,7 @@ image_resource:
 inputs:
 - name: source
 - name: node-tasks
-- name: node_modules
+- name: dependencies
   path: /cache
 
 outputs:
@@ -23,5 +23,6 @@ run:
   args: 
   - -exc
   - |
+    ls
     chmod +x node-tasks/node/tasks.sh
     ./node-tasks/node/tasks.sh
