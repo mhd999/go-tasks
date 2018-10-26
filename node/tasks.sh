@@ -53,6 +53,8 @@ build() {
     ls
     mkdir -p ${DIR}/executable/"$entrypoint"
     cp handler.js ${DIR}/executable/"$entrypoint"
+    cd ${DIR}/executable/"$entrypoint"
+    ls 
     print success "create a build"
 }
 
