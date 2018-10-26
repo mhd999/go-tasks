@@ -50,7 +50,7 @@ test() {
 build() {
     install_dependencies
 	npm run build
-    mv handler.js ${DIR}/executable
+    mv handler.js ${DIR}/executable/${entrypoint}
     print success "create a build"
 }
 
