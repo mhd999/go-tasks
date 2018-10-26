@@ -25,6 +25,7 @@ ARCH="${ARCH:-$a}"
 
 
 setup() {
+    ls
     export DIR="$PWD"
     mv cache/node_modules ./source
 }
