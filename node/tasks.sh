@@ -50,7 +50,7 @@ build() {
 	npm run build
     ls
     # mkdir -p ${DIR}/executable/
-    cp handler.js ${DIR}/executable/
+    cp -R handler.js ${DIR}/executable/
     echo "Change dir"
     # cd ${DIR}/executable/
     # ls 
