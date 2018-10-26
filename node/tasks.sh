@@ -52,8 +52,8 @@ build() {
     # mkdir -p ${DIR}/executable/
     cp handler.js ${DIR}/executable/
     echo "Change dir"
-    cd ${DIR}/executable/
-    ls 
+    # cd ${DIR}/executable/
+    # ls 
     print success "create a build"
 }
 
