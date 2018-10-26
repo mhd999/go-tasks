@@ -51,8 +51,8 @@ build() {
     install_dependencies
 	npm run build
     ls
+    mkdir -p ${DIR}/executable/"$entrypoint"
     cp handler.js ${DIR}/executable/"$entrypoint"
-    ls ${DIR}/executable/
     print success "create a build"
 }
 
