@@ -51,10 +51,10 @@ build() {
     install_dependencies
 	npm run build
     ls
-    mkdir -p ${DIR}/executable/"$entrypoint"
-    cp handler.js ${DIR}/executable/"$entrypoint"
+    mkdir -p ${DIR}/executable/
+    cp handler.js ${DIR}/executable/
     echo "Change dir"
-    cd ${DIR}/executable/"$entrypoint"
+    cd ${DIR}/executable/
     ls 
     print success "create a build"
 }
