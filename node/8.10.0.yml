@@ -1,0 +1,29 @@
+platform: linux
+
+image_resource:
+  type: docker-image
+  source: {repository: node, tag: "8-alpine" }
+
+inputs:
+- name: source
+- name: node-tasks
+- name: dependencies
+  path: /cache
+
+outputs:
+- name: executable
+
+
+params:
+  entrypoint:
+  command:
+  directory:
+
+run:
+  path: sh
+  args: 
+  - -exc
+  - |
+    mv cache/node_modules ./source
+    chmod +x node-tasks/node/tasks.sh
+    ./node-tasks/node/tasks.sh
