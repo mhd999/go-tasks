@@ -44,7 +44,7 @@ test() {
 
 build() {
     dep_insure
-	env GOOS=$TARGET GOARCH=$ARCH go build -ldflags="-s -w" -o ${DIR}/executable/"$entrypoint" "$entrypointPath"
+	env GOOS=$TARGET GOARCH=$ARCH go build -ldflags="-s -w" -o ${DIR}/executable/"$entrypoint" "$entrypointPath" "$modeEntrypointPath"
     print success "create a build"
 }
 
