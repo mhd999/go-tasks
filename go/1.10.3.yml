@@ -25,5 +25,5 @@ run:
   args: 
   - -exc
   - |
-    chmod +x go-tasks/tasks.sh
-    ./go-tasks/tasks.sh
+    chmod +x go-tasks/go/tasks.sh
+    ./go-tasks/go/tasks.sh
