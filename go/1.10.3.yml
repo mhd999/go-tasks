@@ -19,6 +19,7 @@ params:
   entrypointPath:
   command:
   directory:
+  organization:
 
 run:
   path: sh
