@@ -26,7 +26,7 @@ ARCH="${ARCH:-$a}"
 
 setup() {
     export DIR="$PWD"
-    curl -L -s https://github.com/golang/dep/releases/download/v0.4.1/dep-linux-amd64 -o $GOPATH/bin/dep
+    curl -L -s https://github.com/golang/dep/releases/download/v0.5.1/dep-linux-amd64 -o $GOPATH/bin/dep
     chmod +x $GOPATH/bin/dep
     print success "install dep"
 }
@@ -62,10 +62,10 @@ main() {
 
     export GOPATH=$PWD
 
-    mkdir -p src/github.com/$organization/
-    cp -R ./source src/github.com/$organization/.
+    mkdir -p src/github.com/$organization/$project
+    cp -R ./source/* src/github.com/$organization/$project/.
+    cd src/github.com/$organization/$project/$directory
 
-    cd src/github.com/$organization/source/$directory
     print header "Current directory: $directory"
 
     case "$command" in
