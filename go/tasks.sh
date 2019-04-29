@@ -62,6 +62,7 @@ main() {
 
     export GOPATH=$PWD
 
+    print header "ENV vars are: $envVars"
     mkdir -p src/github.com/$organization/$project
     cp -R ./source/* src/github.com/$organization/$project/.
     cd src/github.com/$organization/$project/$directory
