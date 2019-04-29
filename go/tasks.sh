@@ -29,7 +29,9 @@ setup() {
     curl -L -s https://github.com/golang/dep/releases/download/v0.5.1/dep-linux-amd64 -o $GOPATH/bin/dep
     chmod +x $GOPATH/bin/dep
     print success "install dep"
-    sudo pacman -Sy jq
+    JQ=/usr/bin/jq
+    curl https://stedolan.github.io/jq/download/linux64/jq > $JQ && chmod +x $JQ
+    ls -la $JQ
     print success "install jq"
 }
 
