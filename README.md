@@ -46,6 +46,7 @@ as `common-tasks/terraform` to tasks in our job. So to use the task we simply de
         command: test
         directory: functions/user-offer
         organization: TeliaSoneraNorge
+        project: channel-api
 ```
 
 In the example, `file:` links to the task definition with the same name found in this repository, while
