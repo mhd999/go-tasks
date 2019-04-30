@@ -73,8 +73,6 @@ main() {
 
     export GOPATH=$PWD
 
-    print header "ENV vars are: $envVars"
-    print header "DYNAMO_ENDPOINT vars is: $DYNAMO_ENDPOINT"
     mkdir -p src/github.com/$organization/$project
     cp -R ./source/* src/github.com/$organization/$project/.
     cd src/github.com/$organization/$project/$directory
