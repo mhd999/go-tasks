@@ -23,6 +23,20 @@ TARGET="${TARGET:-$t}"
 ARCH="${ARCH:-$a}"
 
 
+export_env_vars() {
+    count=$(echo $envVars | jq '. | length')
+
+    for((i=0;i<$count;i++)) 
+    do
+        key=$(echo $envVars | jq -c 'keys | .['$i']')
+        value=$(echo $envVars | jq -c '.'$key'')
+        export $key=$value
+        echo $key
+        echo '--------'
+        echo $DYNAMO_ENDPOINT
+    done
+    print success "export environment variables"
+}
 
 setup() {
     export DIR="$PWD"
@@ -33,6 +47,7 @@ setup() {
     curl https://stedolan.github.io/jq/download/linux64/jq > $JQ && chmod +x $JQ
     ls -la $JQ
     print success "install jq"
+    export_env_vars
 }
 
 dep_insure() {
