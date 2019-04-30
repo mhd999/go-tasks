@@ -23,12 +23,23 @@ TARGET="${TARGET:-$t}"
 ARCH="${ARCH:-$a}"
 
 
+export_env_vars() {
+    for s in $(echo $envVars | jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]" ); do
+        export $s
+    done
+    print success "export environment variables"
+}
 
 setup() {
     export DIR="$PWD"
     curl -L -s https://github.com/golang/dep/releases/download/v0.5.1/dep-linux-amd64 -o $GOPATH/bin/dep
     chmod +x $GOPATH/bin/dep
     print success "install dep"
+    JQ=/usr/bin/jq
+    curl https://stedolan.github.io/jq/download/linux64/jq > $JQ && chmod +x $JQ
+    ls -la $JQ
+    print success "install jq"
+    export_env_vars
 }
 
 dep_insure() {

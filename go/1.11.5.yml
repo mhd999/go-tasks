@@ -21,6 +21,7 @@ params:
   directory:
   organization:
   project:
+  envVars:
 
 run:
   path: sh
