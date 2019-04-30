@@ -24,16 +24,8 @@ ARCH="${ARCH:-$a}"
 
 
 export_env_vars() {
-    count=$(echo $envVars | jq '. | length')
-
-    for((i=0;i<$count;i++)) 
-    do
-        key=$(echo $envVars | jq -c 'keys | .['$i']')
-        value=$(echo $envVars | jq -c '.'$key'')
-        export $key=$value
-        echo $key
-        echo '--------'
-        echo $DYNAMO_ENDPOINT
+    for s in $(echo $envVars | jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]" ); do
+        export $s
     done
     print success "export environment variables"
 }
@@ -82,6 +74,7 @@ main() {
     export GOPATH=$PWD
 
     print header "ENV vars are: $envVars"
+    print header "DYNAMO_ENDPOINT vars is: $DYNAMO_ENDPOINT"
     mkdir -p src/github.com/$organization/$project
     cp -R ./source/* src/github.com/$organization/$project/.
     cd src/github.com/$organization/$project/$directory
