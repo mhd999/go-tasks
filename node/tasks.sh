@@ -53,7 +53,8 @@ build() {
     install_dependencies
 	npm run build
     mv $build/* ${DIR}/executable/
-    ls ${DIR}/executable/  # debug
+    cd ${DIR}/executable/  # debug
+    ls  # debug
     print success "create a build"
 }
 
