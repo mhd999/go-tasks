@@ -29,8 +29,12 @@ setup() {
 }
 
 install_dependencies() {
-    npm install
-    print success "install dependencies"
+    if [ -d node_modules ]; then
+        echo "dependencies exists"
+    else
+        npm install
+        print success "install dependencies"
+    fi
 }
 
 lint() {
@@ -48,7 +52,8 @@ test() {
 build() {
     install_dependencies
 	npm run build
-    mv handler.js ${DIR}/executable/
+    mv $build/* ${DIR}/executable/
+    ls ${DIR}/executable/  # debug
     print success "create a build"
 }
 
@@ -61,6 +66,7 @@ main() {
         echo "No directory provided. Please set the parameter."
         exit 1
     fi
+
 
     setup
 
